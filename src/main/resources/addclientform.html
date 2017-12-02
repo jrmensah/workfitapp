@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add a Student</title>
+</head>
+<body>
+
+<a href="#">Add a Student</a>
+<a href="/addcourse">Add a Course</a>
+<a href="/addinstructor">Add an Instructor</a>
+<a href="/show">Show all Records</a>
+
+<h1 class="text-center">Add a Student</h1>
+<div class="container">
+    <div class="col-md-6 col-md-offset-2">
+        <form th:action="@{/addclient}" th:object="${clients}" method="post">
+            <input type="hidden" th:field="*{id}" placeholder="Enter the Client's information">
+
+
+            <div class="form-group">
+                <label>First Name:</label>
+                <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <label>Contact Number:</label>
+                <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Contact Number">
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input class="form-control" type="text" th:field="*{email}" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <form>
+                    <input type="radio" name="gender" value="male"> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br>
+                    <input type="radio" name="gender" value="other"> Other
+                </form>
+            </div>
+            <input call="btn btn-default" type="submit" value="Add Student"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

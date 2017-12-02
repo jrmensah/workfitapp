@@ -2,20 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Students List</title>
+    <title>Clients List</title>
 </head>
 <body>
 <h1 class="text-center">Record List</h1>
 <a href="/addclient">Add a Client</a>
-<a href="/show">Show all Records</a>
 
-<h3 class="text-center">Students</h3>
+
+<h3 class="text-center">Clients</h3>
 <table>
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Contact Number</th>
         <th>Email</th>
+        <th>Gender</th>
     </tr>
 
 
@@ -26,7 +27,6 @@
         <td th:text="${client.email}"></td>
         <td th:text="${client.gender}"></td>
     </tr>
-</table>
 </table>
 </body>
 </html>

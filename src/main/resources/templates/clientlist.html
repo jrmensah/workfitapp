@@ -4,16 +4,18 @@
     <meta charset="UTF-8"/>
     <title>Clients List</title>
     <div th:replace="base::header"></div>
+    <link rel="stylesheet" th:href="@{/css/clientlist.css}" type="text/css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous"/>
+
 </head>
 <body>
-<h1 class="text-center">Client List</h1>
-<a href="/addclient">Add a Client</a>
+<div class="container">
+    <!--nav bar and css components-->
+    <div th:replace="base :: navigation"></div>
+    <h1 class="text-center">Client List</h1>
 
-
-<h3 class="text-center">Clients</h3>
 <table>
     <tr>
         <th>First Name</th>
@@ -32,5 +34,7 @@
         <td th:text="${client.gender}"></td>
     </tr>
 </table>
+    <th:block th:replace="base::footer"></th:block>
+</div>
 </body>
 </html>

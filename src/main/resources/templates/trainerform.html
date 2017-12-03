@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <div th:replace="base::header"></div>
+</head>
+</bod>
+        <form action="#" th:action="@{/processtrainer}" th:object="${trainer}" method="post">
+            <div th:replace="base :: navigation"></div>
+            <div class="container">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <h2>Add A Trainer</h2>
+                    <div class="panel panel-default card card-3">
+                        <div class="panel-body">
+            <input type="hidden" th:field="*{id}"/>
+
+                            <label>First Name:</label>
+                            <input class="form-control" type="text" th:field="*{firstName}" placeholder="Enter Trainer Firstname"/>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span><br/>
+
+                            <label>Last Name:</label>
+                            <input class="form-control" type="text" th:field="*{lastName}" placeholder="Enter Trainer Firstname"/>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span><br/>
+
+                            <label>Contact Number:</label>
+                            <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Enter Trainer Contactnumber"/>
+            <span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"></span><br/>
+
+             <label>Email:</label><input class="form-control" type="text" th:field="*{email}" placeholder="Enter Trainer Email"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br/>
+
+
+            <label>Rating:</label> <input class="form-control" type="text" th:field="*{rating}" placeholder="Enter Trainer Rating"/>
+            <span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></span><br/>
+
+             <div class="form-group">
+              <label>Gender:</label><input class="form-control"  type="text" th:field="*{gender}" placeholder="Enter Trainer Gender"/>
+            <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br/>
+                            </div>
+
+                            <input call="btn btn-default" type="submit" value="Add Trainer"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+</body>
+</html>

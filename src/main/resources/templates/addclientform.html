@@ -6,15 +6,14 @@
     <div th:replace="base::header"></div>
 </head>
 <body>
-<!--nav bar and css components-->
-<div th:replace="base :: navigation"></div>
-<h2>Add A Client</h2>
-<div class="container">
-    <div class="col-lg-6 col-lg-offset-3">
-        <h2>Add A Client</h2>
-        <div class="panel panel-default card card-3">
-            <div class="panel-body">
-            <form th:action="@{/addclient}" th:object="${clients}" method="post">
+
+            <form th:action="@{/addclient}" th:object="${clients}" method="post"><!--nav bar and css components-->
+                <div th:replace="base :: navigation"></div>
+                <div class="container">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <h2>Add A Client</h2>
+                        <div class="panel panel-default card card-3">
+                            <div class="panel-body">
                 <input type="hidden" th:field="*{id}" placeholder="Enter the Client's information">
 
 
@@ -40,10 +39,13 @@
                     <input class="form-control" type="text" th:field="*{gender}" placeholder="Gender">
                 </div>
                 <input call="btn btn-default" type="submit" value="Add Client"/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 </body>
 </html>

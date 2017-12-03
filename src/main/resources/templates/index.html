@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Work It!</title>
+    <div th:replace="base::header"></div>
 </head>
 <body>
+
+<!--nav bar and css components-->
+<div th:replace="base :: navigation"></div>
+
+
 <div class="container">
-    <h1 class="text-center">Work It!</h1>
-    <p>Select an action below:</p>
+    <h2> What do you want to do</h2>
+    <p>    <a href="/addclient">Add a Client </a> or <a href="/showclientlist">Show Client Listings</a></p>
+    <p>    <a href="">Add a Personal Trainer </a> or <a href="">Show Trainer Listings</a></p>
 
-    <a href="/addclient">Add a Client</a>
+</div>
 
 
 
+
+<th:block th:replace="base::footer"></th:block>
 </div>
 </body>
 </html>

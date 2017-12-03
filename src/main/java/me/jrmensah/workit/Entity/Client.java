@@ -1,4 +1,4 @@
-package me.jrmensah.workit;
+package me.jrmensah.workit.Entity;
 
 
 import javax.persistence.Entity;

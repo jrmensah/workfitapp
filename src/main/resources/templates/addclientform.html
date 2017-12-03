@@ -1,43 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Add a Client</title>
+    <div th:replace="base::header"></div>
 </head>
 <body>
-
-<a href="#">Add a Client</a>
-
-<h1 class="text-center">Add a Client</h1>
+<!--nav bar and css components-->
+<div th:replace="base :: navigation"></div>
+<h2>Add A Client</h2>
 <div class="container">
-    <div class="col-md-6 col-md-offset-2">
-        <form th:action="@{/addclient}" th:object="${clients}" method="post">
-            <input type="hidden" th:field="*{id}" placeholder="Enter the Client's information">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h2>Add A Client</h2>
+        <div class="panel panel-default card card-3">
+            <div class="panel-body">
+            <form th:action="@{/addclient}" th:object="${clients}" method="post">
+                <input type="hidden" th:field="*{id}" placeholder="Enter the Client's information">
 
 
-            <div class="form-group">
-                <label>First Name:</label>
-                <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label>Last Name:</label>
-                <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label>Contact Number:</label>
-                <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Contact Number">
-            </div>
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number:</label>
+                    <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Contact Number">
+                </div>
 
-            <div class="form-group">
-                <label>Email:</label>
-                <input class="form-control" type="text" th:field="*{email}" placeholder="Email">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control" type="text" th:field="*{email}" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <input class="form-control" type="text" th:field="*{gender}" placeholder="Gender">
+                </div>
+                <input call="btn btn-default" type="submit" value="Add Client"/>
+            </form>
             </div>
-            <div class="form-group">
-                <label>Gender:</label>
-                <input class="form-control" type="text" th:field="*{gender}" placeholder="Gender">
-            </div>
-            <input call="btn btn-default" type="submit" value="Add Client"/>
-        </form>
+        </div>
     </div>
 </div>
 </body>

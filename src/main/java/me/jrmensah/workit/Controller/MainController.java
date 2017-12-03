@@ -1,5 +1,7 @@
-package me.jrmensah.workit;
+package me.jrmensah.workit.Controller;
 
+import me.jrmensah.workit.Entity.Client;
+import me.jrmensah.workit.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +55,11 @@ public class MainController {
             model.addAttribute("allclients",clientRepository.findAll());
             return "clientlist";
         }
+    }
+
+    @RequestMapping("/showclientlist")
+    public String showclientlisting(){
+        return "clientlist";
     }
 
 

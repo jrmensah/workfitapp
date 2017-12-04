@@ -5,6 +5,7 @@ import me.jrmensah.workit.Entity.Speciality;
 import me.jrmensah.workit.Entity.Trainer;
 import me.jrmensah.workit.Entity.User;
 import me.jrmensah.workit.Repository.ClientRepository;
+import me.jrmensah.workit.Repository.ExperianceRepository;
 import me.jrmensah.workit.Repository.SpecialityRepository;
 import me.jrmensah.workit.Repository.TrainerRepository;
 import me.jrmensah.workit.security.UserService;
@@ -12,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -33,6 +32,9 @@ public class MainController {
 
     @Autowired
     SpecialityRepository specialityRepository;
+
+    @Autowired
+    ExperianceRepository experianceRepository;
 
 
     @RequestMapping("/")
@@ -63,7 +65,7 @@ public class MainController {
     }
     @GetMapping("/addclient")
     public String addClientForm(Model model){
-        model.addAttribute("clients", new Client());
+        model.addAttribute("client", new Client());
         return "addclientform";
     }
     @PostMapping("/addclient")
@@ -159,5 +161,42 @@ public class MainController {
         return "specialitylist";
     }
 
+    @GetMapping("/search")
+    public String getSearch(){
+        return "searchform";
+    }
+
+    @PostMapping("/search")
+    public String showSearchResults(HttpServletRequest request, Model model){
+        String searchTrainername = request.getParameter("search");
+        model.addAttribute("search",searchTrainername);
+//
+
+//        Expecting multiple parameters or else will throw No parameter available Need to pass as many as are in constructor in Entity.
+        model.addAttribute("fittrain", trainerRepository.findAllByFirstNameOrLastNameContainingIgnoreCase(searchTrainername,searchTrainername));
+//
+        return "searchtrainerlist";
+    }
+
+    @GetMapping("/addTrainertoExperiance/{id}")                 //Experiance mapped by Trainer
+    public String addStudents(@PathVariable("id") long trainerid, Model model)
+    {
+
+        model.addAttribute("trainer", trainerRepository.findOne(new Long(trainerid)));
+        model.addAttribute("experiancelist", experianceRepository.findAll());
+        return "traineraddexperiance";
+    }
+    @PostMapping("/addTrainertoExperiance")
+    public String addTrainertoExperiance(HttpServletRequest request, Model model)
+    {
+        String trainerId = request.getParameter("trainerId");
+        String experianceid = request.getParameter("experianceid");
+        Trainer trainer=trainerRepository.findOne(new Long(trainerId));
+        trainer.addExperiance(experianceRepository.findOne(new Long(experianceid)));
+        trainerRepository.save(trainer);
+        model.addAttribute("experiancelist", experianceRepository.findAll());
+        model.addAttribute("trainerlist", trainerRepository.findAll());
+        return "redirect:/";
+    }
 
 }

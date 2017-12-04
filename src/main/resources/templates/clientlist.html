@@ -11,12 +11,13 @@
 
 </head>
 <body>
-<div class="container">
-    <!--nav bar and css components-->
-    <div th:replace="base :: navigation"></div>
+<!--nav bar and css components-->
+<div th:replace="base :: navigation"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
     <h1 class="text-center">Client List</h1>
-
-<table>
+<table class="table">
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
@@ -24,8 +25,6 @@
         <th>Email</th>
         <th>Gender</th>
     </tr>
-
-
     <tr th:each="client : ${allclients}">
         <td th:text="${client.firstName}"></td>
         <td th:text="${client.lastName}"></td>
@@ -35,6 +34,8 @@
     </tr>
 </table>
     <th:block th:replace="base::footer"></th:block>
+        </div>
+    </div>
 </div>
 </body>
 </html>

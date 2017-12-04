@@ -4,8 +4,11 @@ package me.jrmensah.workit.Entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -31,6 +34,13 @@ public class Client {
     @Size(min = 3)
     private String gender;
 
+    @ManyToMany()
+    private Set<Experiance> experiances;
+
+    @ManyToMany()
+    private Set<Speciality>specialities;
+
+
     public Client() {
     }
 
@@ -40,7 +50,10 @@ public class Client {
         this.contactNumber = contactNumber;
         this.email = email;
         this.gender = gender;
+        this.experiances=new HashSet<Experiance>();
+        this.specialities=new HashSet<Speciality>();
     }
+
 
     public long getId() {
         return id;
@@ -89,4 +102,8 @@ public class Client {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public void addExperiance(Experiance experiances) {this.experiances.add(experiances);}
+
+    public void addSpeciality(Speciality specialities) {this.specialities.add(specialities);}
 }

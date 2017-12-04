@@ -86,7 +86,7 @@ public class MainController {
     @RequestMapping("/login")
     private String login(Model model)
     {
-        return "login";
+        return "login2";
     }
 
     @GetMapping("/register")

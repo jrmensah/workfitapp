@@ -7,29 +7,21 @@ h1{
     margin: 0 auto;
     width: 500px;
     float: center;
-    font-family: "Lato", sans-serif;
-}
-
-h3{
-.text-center
-    margin: 0 auto;
-    width: 500px;
-    float: center;
-    font-family: "Lato", sans-serif;
-
+    font-family: "Open Sans", sans-serif;
+    color: #00c7c8;
 }
 
 
 th {
-    font-family: "Lato", sans-serif;
-    color: #00c7c8;
-    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+    color: #f15c2e;
+    font-size: 16px;
 }
 
 td {
-    font-family: "Lato", sans-serif;
-    color: #00c7c8;
-    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+    color: #f15c2e;
+    font-size: 16px;
 }
 
 a {

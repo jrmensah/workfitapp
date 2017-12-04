@@ -4,6 +4,12 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
     <div th:replace="base::header"></div>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!--My additional bootstrap-->
+    <link rel="stylesheet" th:href="@{/css/trainerlist.css}" type="text/css"/>
 </head>
 </bod>
         <form action="#" th:action="@{/processtrainer}" th:object="${trainer}" method="post">
@@ -16,15 +22,15 @@
             <input type="hidden" th:field="*{id}"/>
 
                             <label>First Name:</label>
-                            <input class="form-control" type="text" th:field="*{firstName}" placeholder="Enter Trainer Firstname"/>
+                            <input class="form-control" type="text" th:field="*{firstName}" placeholder="Enter Trainer First Name"/>
             <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span><br/>
 
                             <label>Last Name:</label>
-                            <input class="form-control" type="text" th:field="*{lastName}" placeholder="Enter Trainer Firstname"/>
+                            <input class="form-control" type="text" th:field="*{lastName}" placeholder="Enter Trainer Last Name"/>
             <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span><br/>
 
                             <label>Contact Number:</label>
-                            <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Enter Trainer Contactnumber"/>
+                            <input class="form-control" type="text" th:field="*{contactNumber}" placeholder="Enter Trainer Contact Number"/>
             <span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"></span><br/>
 
              <label>Email:</label><input class="form-control" type="text" th:field="*{email}" placeholder="Enter Trainer Email"/>

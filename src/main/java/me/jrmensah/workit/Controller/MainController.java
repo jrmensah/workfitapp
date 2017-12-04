@@ -1,13 +1,7 @@
 package me.jrmensah.workit.Controller;
 
-import me.jrmensah.workit.Entity.Client;
-import me.jrmensah.workit.Entity.Speciality;
-import me.jrmensah.workit.Entity.Trainer;
-import me.jrmensah.workit.Entity.User;
-import me.jrmensah.workit.Repository.ClientRepository;
-import me.jrmensah.workit.Repository.ExperianceRepository;
-import me.jrmensah.workit.Repository.SpecialityRepository;
-import me.jrmensah.workit.Repository.TrainerRepository;
+import me.jrmensah.workit.Entity.*;
+import me.jrmensah.workit.Repository.*;
 import me.jrmensah.workit.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +29,9 @@ public class MainController {
 
     @Autowired
     ExperianceRepository experianceRepository;
+
+    @Autowired
+    AppointmentRepository appointmentRepository;
 
 
     @RequestMapping("/")
@@ -199,4 +196,24 @@ public class MainController {
         return "redirect:/";
     }
 
+    //Adding/ Booking and Appointment
+    @GetMapping("/addappointment")
+    private String addAppointment(Model model)
+    {
+        model.addAttribute("appointment", new Appointment());
+        return "appointmentform";
+    }
+
+    @PostMapping("/processappointment")
+    private String processAppointment(@Valid Appointment appointment, Model model)
+    {
+        model.addAttribute("allappointments", appointmentRepository.findAll());
+        return "appointmentlist";
+    }
+
+    @RequestMapping("/showappointments")
+    private String showAppointment(Model model)
+    {
+        return "appointmentlist";
+    }
 }

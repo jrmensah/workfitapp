@@ -3,6 +3,7 @@ package me.jrmensah.workit.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
@@ -15,7 +16,7 @@ import java.util.Set;
 public class Client {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotNull
@@ -40,6 +41,9 @@ public class Client {
     @ManyToMany()
     private Set<Speciality>specialities;
 
+    @ManyToMany()
+    private Set<Appointment> appointments;
+
 
     public Client() {
     }
@@ -52,6 +56,7 @@ public class Client {
         this.gender = gender;
         this.experiances=new HashSet<Experiance>();
         this.specialities=new HashSet<Speciality>();
+        this.appointments=new HashSet<Appointment>();
     }
 
 

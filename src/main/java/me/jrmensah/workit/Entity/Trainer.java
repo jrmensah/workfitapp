@@ -44,6 +44,9 @@ public class Trainer
 //	@ManyToMany()
 //	private Set<Location>locations;
 
+	@ManyToMany()
+	private Set<Experiance> experiances;
+
 	public Trainer()
 	{
 	}
@@ -58,6 +61,8 @@ public class Trainer
 		this.gender = gender;
 		this.specialities = new HashSet<Speciality>();
 //		this.locations = new HashSet<Location>();
+		this.experiances=new HashSet<Experiance>();
+
 	}
 
 	public long getId() {
@@ -129,6 +134,7 @@ public class Trainer
 //
 //	public void addLocation(Location locations) {this.locations.add(locations);}
 
+	public void addExperiance(Experiance experiances) {this.experiances.add(experiances);}
 
 
 }

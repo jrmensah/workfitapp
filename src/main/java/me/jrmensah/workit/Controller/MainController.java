@@ -33,12 +33,16 @@ public class MainController {
     @Autowired
     AppointmentRepository appointmentRepository;
 
+    @Autowired
+    LocationRepository locationRepository;
+
 
     @RequestMapping("/")
     public String showIndex(Model model){
         model.addAttribute("allclients", clientRepository.findAll());
         model.addAttribute("fittrain", trainerRepository.findAll());
         model.addAttribute("experiancelist", experianceRepository.findAll());
+        model.addAttribute("locationlist",locationRepository.findAll());
         return "index";
     }
     @RequestMapping("/home")
@@ -224,4 +228,28 @@ public class MainController {
     {
         return "appointmentlist";
     }
+
+
+    //Adding/ Loaction
+    @GetMapping("/addlocation")
+    private String addLocation(Model model)
+    {
+        model.addAttribute("location", new Location());
+        return "locationform";
+    }
+
+    @PostMapping("/processlocationlist")
+    private String processLocation(@Valid Location location, Model model)
+    {
+        model.addAttribute("locationlist",locationRepository.findAll());
+        return "locationlist";
+    }
+
+    @RequestMapping("/showlocation")
+    private String showLocationList(Model model)
+    {
+        return "locationlist";
+    }
+
+
 }

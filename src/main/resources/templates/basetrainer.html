@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title>BaseClient </title>
+    <title>BaseTrainer </title>
 </head>
 <body>
-<div th:fragment="clientnavigation">
+<div th:fragment="trainernavigation">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,16 +25,15 @@
                     <!--Home-->
                     <li><a href="/">WorkFit<span class="sr-only">(current)</span></a></li>
                     <!--link 2-->
-                    <li><a href="/addclienttolocation/{id}">Add Client to Location</a></li>
-                    <li><a href="/addclienttoexperiance/{id}">Add Client to Experiance</a></li>
-                    <li><a href="/addclienttoappointment/{id}">Add Client to Appointment</a></li>
-                    <li><a href="/addclienttospeciality/{id}">Add Client to Speciality</a></li>
+                    <li><a href="/addtrainertolocation/1">Add Trainer to Location</a></li>
+                    <li><a href="/addtrainertoexperiance/1">Add Trainer to Experiance</a></li>
+                    <li><a href="/addtrainertoappointment/1">Add Trainer to Appointment</a></li>
+                    <li><a href="/addtrainertospeciality/1">Add Trainer to Speciality</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 </div>
-
 
 </body>
 </html>

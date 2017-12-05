@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="base::header"></div>
+</head>
+<body>
+<form th:action="@{/addclienttoappointment/{id}}"  th:object="${appointmentlist}"  method="post">
+
+    <input type="text" th:value="${client.id}" name="clientid"/>
+    <label th:inline="text"> Adding Clients to Appointments</label>
+
+    <select class="selectpicker" name="appointmentid">
+        <option th:each="aappointment:${appointmentlist}" th:value="${aappointment.id}" th:text="${aappointment.appointStatus}">Client id</option>
+    </select>
+
+    <input type="Submit" value="Add Clients Appointments"/>
+</form>
+
+</body>
+</html>

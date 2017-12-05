@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="base::header"></div>
+</head>
+<body>
+<form th:action="@{/addtrainertospeciality/{id}}"  th:object="${specialitylist}"  method="post">
+
+    <input type="text" th:value="${trainer.id}" name="trainerid"/>
+    <label th:inline="text"> Adding Trainers to Speciality</label>
+
+    <select class="selectpicker" name="specialityid">
+        <option th:each="aspeciality:${specialitylist}" th:value="${aspeciality.id}" th:text="${aspeciality.description}">Trainer id</option>
+    </select>
+
+    <input type="Submit" value="Add Trainers Experiance"/>
+</form>
+
+</body>
+</html>

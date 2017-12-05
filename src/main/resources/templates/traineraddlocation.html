@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="base::header"></div>
+</head>
+<body>
+<form th:action="@{/addtrainertolocation/{id}}"  th:object="${locationlist}"  method="post">
+
+    <input type="text" th:value="${trainer.id}" name="trainerid"/>
+    <label th:inline="text"> Adding Trainers to Location</label>
+
+    <select class="selectpicker" name="locationid">
+        <option th:each="alocation:${locationlist}" th:value="${alocation.id}" th:text="${alocation.location}">Trainer id</option>
+    </select>
+
+    <input type="Submit" value="Add Trainers Location"/>
+</form>
+
+</body>
+</html>

@@ -143,9 +143,11 @@ public class Trainer
 
 	public void addSpeciality(Speciality specialities) {this.specialities.add(specialities);}
 //
-//	public void addLocation(Location locations) {this.locations.add(locations);}
+	public void addLocation(Location locations) {this.locations.add(locations);}
 
 	public void addExperiance(Experiance experiances) {this.experiances.add(experiances);}
+
+	public void addAppointment(Appointment appointment){this.appointments.add(appointment);}
 
 
 

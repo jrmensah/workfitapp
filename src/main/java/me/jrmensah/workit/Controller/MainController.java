@@ -204,7 +204,7 @@ public class MainController {
         return "appointmentform";
     }
 
-    @PostMapping("/processappointment")
+    @PostMapping("/addappointment")
     private String processAppointment(@Valid Appointment appointment, Model model)
     {
         model.addAttribute("allappointments", appointmentRepository.findAll());

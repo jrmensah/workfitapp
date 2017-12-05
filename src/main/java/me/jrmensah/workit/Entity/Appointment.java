@@ -4,7 +4,7 @@ package me.jrmensah.workit.Entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,22 +14,22 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String appointNum;
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String preferDate;
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String preferTime;
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String preferLocation;
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String preferTrainer;
-    @NotNull
+    @Size(min = 2)
     @NotEmpty
     private String appointStatus;
 
@@ -46,7 +46,7 @@ public class Appointment {
     public Appointment(String appointNum, String preferDate, String preferTime, String preferLocation, String preferTrainer, String appointStatus) {
         this.appointNum = appointNum;
         this.preferDate = preferDate;
-        this.preferDate = preferTime;
+        this.preferTime = preferTime;
         this.preferLocation = preferLocation;
         this.preferTrainer = preferTrainer;
         this.appointStatus = appointStatus;

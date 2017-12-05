@@ -50,6 +50,10 @@ public class Trainer
 	@ManyToMany()
 	private Set<Appointment> appointments;
 
+	@ManyToMany()
+	private Set<Location>locations;
+
+
 	public Trainer()
 	{
 	}
@@ -66,6 +70,9 @@ public class Trainer
 //		this.locations = new HashSet<Location>();
 		this.experiances=new HashSet<Experiance>();
 		this.appointments=new HashSet<Appointment>();
+		this.locations = new HashSet<Location>();
+
+
 
 	}
 
@@ -139,6 +146,7 @@ public class Trainer
 //	public void addLocation(Location locations) {this.locations.add(locations);}
 
 	public void addExperiance(Experiance experiances) {this.experiances.add(experiances);}
+
 
 
 }

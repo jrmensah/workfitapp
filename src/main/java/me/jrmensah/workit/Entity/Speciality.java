@@ -13,13 +13,6 @@ public class Speciality
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
-    @Size(min=1)
-    private String exercise;
-
-    @NotNull
-    @Size(min=1)
-    private String experiance;
 
     @NotNull
     @Size(min=1)
@@ -31,9 +24,8 @@ public class Speciality
     public Speciality() {
     }
 
-    public Speciality(String exercise, String experiance, String description) {
-        this.exercise = exercise;
-        this.experiance = experiance;
+    public Speciality(String description) {
+
         this.description = description;
         this.training=new HashSet<Trainer>();
     }
@@ -44,22 +36,6 @@ public class Speciality
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getExercise() {
-        return exercise;
-    }
-
-    public void setExercise(String exercise) {
-        this.exercise = exercise;
-    }
-
-    public String getExperiance() {
-        return experiance;
-    }
-
-    public void setExperiance(String experiance) {
-        this.experiance = experiance;
     }
 
     public String getDescription() {

@@ -1,13 +1,7 @@
 package me.jrmensah.workit.DataLoader;
 
-import me.jrmensah.workit.Entity.Client;
-import me.jrmensah.workit.Entity.Role;
-import me.jrmensah.workit.Entity.Trainer;
-import me.jrmensah.workit.Entity.User;
-import me.jrmensah.workit.Repository.ClientRepository;
-import me.jrmensah.workit.Repository.RoleRepository;
-import me.jrmensah.workit.Repository.TrainerRepository;
-import me.jrmensah.workit.Repository.UserRepository;
+import me.jrmensah.workit.Entity.*;
+import me.jrmensah.workit.Repository.*;
 import me.jrmensah.workit.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -33,6 +27,19 @@ public class DataLoader implements CommandLineRunner {
     @Autowired
     TrainerRepository trainerRepository;
 
+    @Autowired
+    ExperianceRepository experianceRepository;
+
+    @Autowired
+    SpecialityRepository specialityRepository;
+
+    @Autowired
+    AppointmentRepository appointmentRepository;
+
+    @Autowired
+    LocationRepository locationRepository;
+
+
 
     @Override
     public void run(String... strings) throws Exception {
@@ -52,6 +59,7 @@ public class DataLoader implements CommandLineRunner {
         userRepo.save(user);
 
         Client client = new Client("Jim","Gray","3016310818","jim@montgormerycollege.edu","Male");
+//Need to add in add methods for Experiance,Location,Speacilaty,Appointment
         clientRepository.save(client);
 
         Client client2 = new Client("Rachel","Turner","3457896081","Sally@gmail.com","Female");
@@ -98,6 +106,58 @@ public class DataLoader implements CommandLineRunner {
         Trainer trainer5 = new Trainer("Ally","Long","18009697960","Ally@gmail.com","5 Stars","Female");
         trainerRepository.save(trainer5);
 
+        Experiance experiance = new Experiance("Beginner");
+        experianceRepository.save(experiance);
+
+        Experiance experiance1 = new Experiance("Intermediate");
+        experianceRepository.save(experiance1);
+
+        Experiance experiance2 = new Experiance("Advanced");
+        experianceRepository.save(experiance2);
+
+        Speciality dancespeciality = new Speciality("Dance");
+        specialityRepository.save(dancespeciality);
+
+        Speciality martialartsspeciality1 = new Speciality("Martialarts");
+        specialityRepository.save(martialartsspeciality1);
+
+        Speciality watersportsspeciality = new Speciality("WaterSports");
+        specialityRepository.save(watersportsspeciality);
+
+        Speciality aerobicsspeciality = new Speciality("Aerobics");
+        specialityRepository.save(aerobicsspeciality);
+
+        Speciality weighttrainingspeciality =  new Speciality("Weight Training");
+        specialityRepository.save(weighttrainingspeciality);
+
+        Location fredericklocation = new Location("Frederick");
+        locationRepository.save(fredericklocation);
+
+        Location montgomerycountylocation = new Location("Montgomery County");
+        locationRepository.save(montgomerycountylocation);
+
+        Location princegeorgelocation = new Location("Prince George's County");
+        locationRepository.save(princegeorgelocation);
+
+
+
+//        public Appointment(String appointNum, String preferDate, String preferTime, String preferLocation, String preferTrainer, String appointStatus) {
+//            this.appointNum = appointNum;
+//            this.preferDate = preferDate;
+//            this.preferDate = preferTime;
+//            this.preferLocation = preferLocation;
+//            this.preferTrainer = preferTrainer;
+//            this.appointStatus = appointStatus;
+        //Possibly add appointment TYpe of exericses from speciality form to include in the Appointmnet constructors?
+
+        Appointment appointment = new Appointment("One","12/5/2017","2:00pm to 3:00pm","Frederick","Trainer 3","Pending");
+        appointmentRepository.save(appointment);
+
+        Appointment appointment2 = new Appointment("Two","12/6/2017","1:00pm to 2:00pm","Montgomery County","Trainer 1","Pending");
+        appointmentRepository.save(appointment2);
+
+        Appointment appointment3 = new Appointment("Three","12/8/2017","8:00pm to 9:00pm","Prince George's County","Trainer 2","Pending");
+        appointmentRepository.save(appointment3);
 
     }
 }

@@ -8,14 +8,13 @@
 <body>
 
 
+<form th:action="@{/addtrainertoexperiance}"  th:object="${experiancelist}"  method="post">
 
-<form th:action="@{/addTrainertoExperiance{id}(id=${experiance.id})"  th:object="${experiancelist}"  method="post">
+    <input type="text" th:value="${trainer.id}" name="trainerid"/>
+    <label th:inline="text"> Adding Trainers</label>
 
-    <input type="text" th:value="${trainerid}" name="trainerid"/>
-    <label th:inline="text"> Adding Trainers </label>
-
-    <select name="experianceid">
-        <option th:each="aexperiance:${experiancelist}" th:value="${aexperiance.id}" th:text="${aexperiance.experianceLevel}">Trainer id</option>
+    <select class="selectpicker" name="experiances">
+        <option th:each="aexperiance:${experiancelist}" th:value="${aexperiance.id}" th:text="${anexperiance.experianceLevel}">Trainer id</option>
     </select>
 
     <input type="Submit" value="Add Trainers Experiance"/>

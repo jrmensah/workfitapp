@@ -44,6 +44,8 @@ public class Client {
     @ManyToMany()
     private Set<Appointment> appointments;
 
+    @ManyToMany()
+    private Set<Location>locations;
 
     public Client() {
     }
@@ -57,6 +59,8 @@ public class Client {
         this.experiances=new HashSet<Experiance>();
         this.specialities=new HashSet<Speciality>();
         this.appointments=new HashSet<Appointment>();
+        this.locations = new HashSet<Location>();
+
     }
 
 
@@ -109,6 +113,8 @@ public class Client {
     }
 
     public void addExperiance(Experiance experiances) {this.experiances.add(experiances);}
+
+    public void addLocation(Location locations) {this.locations.add(locations);}
 
     public void addSpeciality(Speciality specialities) {this.specialities.add(specialities);}
 }

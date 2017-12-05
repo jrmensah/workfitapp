@@ -25,11 +25,6 @@
                 Exercise: <input type="text" th:field="*{exercise}" placeholder="Enter Trainer exercise"/>
                 <span th:if="${#fields.hasErrors('exercise')}" th:errors="*{exercise}"></span><br/>
 
-                Experiance: <input type="text" th:field="*{experiance}" placeholder="Enter Trainer experiance"/>
-                <span th:if="${#fields.hasErrors('experiance')}" th:errors="*{experiance}"></span><br/>
-
-                Description: <input type="text" th:field="*{description}" placeholder="Enter Trainer description"/>
-                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br/>
 
                 <input type="submit" value="submit"/>
 

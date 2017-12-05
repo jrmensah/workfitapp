@@ -11,7 +11,10 @@
     <!--My additional bootstrap-->
     <link rel="stylesheet" th:href="@{/css/trainerlist.css}" type="text/css"/>
 </head>
-</bod>
+<body>
+
+<div th:replace="basetrainer::trainernavigation"></div>
+
         <form action="#" th:action="@{/processtrainer}" th:object="${trainer}" method="post">
             <div th:replace="base :: navigation"></div>
             <div class="container">

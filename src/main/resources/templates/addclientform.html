@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/clientlist.css}"/>
 </head>
 <body>
+<div th:replace="baseclient::clientnavigation"></div>
 
             <form th:action="@{/addclient}" th:object="${client}" method="post"><!--nav bar and css components-->
                 <div th:replace="base :: navigation"></div>

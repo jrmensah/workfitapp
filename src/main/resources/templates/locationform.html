@@ -15,13 +15,13 @@
             <h2>Add A Location</h2>
             <div class="panel panel-default card card-3">
                 <div class="panel-body">
-                    <input type="hidden" th:field="*{id}" placeholder="Enter Location information">
+                    <input type="hidden" th:field="*{id}" placeholder="Enter the Speciality's information">
 
 
                     <div class="form-group">
                         <label>description:</label>
-                        <input class="form-control" type="text" th:field="*{location}" placeholder="location">
-                        <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span><br/>
+                        <input class="form-control" type="text" th:field="*{description}" placeholder="description">
+                        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br/>
                     </div>
 
 
@@ -32,7 +32,6 @@
         </div>
     </div>
 </form>
-
 
 </body>
 </html>

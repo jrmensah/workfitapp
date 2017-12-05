@@ -33,11 +33,16 @@ public class MainController {
     @Autowired
     AppointmentRepository appointmentRepository;
 
+    @Autowired
+    LocationRepository locationRepository;
+
 
     @RequestMapping("/")
     public String showIndex(Model model){
         model.addAttribute("allclients", clientRepository.findAll());
         model.addAttribute("fittrain", trainerRepository.findAll());
+        model.addAttribute("experiancelist", experianceRepository.findAll());
+        model.addAttribute("locationlist",locationRepository.findAll());
         return "index";
     }
     @RequestMapping("/home")
@@ -87,6 +92,8 @@ public class MainController {
     {
         return "login2";
     }
+
+
 
     @GetMapping("/register")
     private String register(Model model)
@@ -170,29 +177,34 @@ public class MainController {
 //
 
 //        Expecting multiple parameters or else will throw No parameter available Need to pass as many as are in constructor in Entity.
-        model.addAttribute("fittrain", trainerRepository.findAllByFirstNameOrLastNameContainingIgnoreCase(searchTrainername,searchTrainername));
+        model.addAttribute("fittrain", trainerRepository.findAllByFirstNameOrLastNameOrContactNumberOrEmailOrRatingOrGenderContainingIgnoreCase(searchTrainername,searchTrainername,searchTrainername,searchTrainername,searchTrainername,searchTrainername));
 //
         return "searchtrainerlist";
     }
 
-    @GetMapping("/addTrainertoExperiance/{id}")                 //Experiance mapped by Trainer
-    public String addStudents(@PathVariable("id") long trainerid, Model model)
+    @GetMapping("/addtrainertoexperiance/{id}")                 //Experiance mapped by Trainer
+    public String addtrainertoexperiance(@PathVariable("id") long trainerid, Model model)
     {
 
-        model.addAttribute("trainer", trainerRepository.findOne(new Long(trainerid)));
-        model.addAttribute("experiancelist", experianceRepository.findAll());
+//        model.addAttribute("experiancelist", experianceRepository.findOne(new Long(experianceID)));
+//        model.addAttribute("fittrain", trainerRepository.findAll());
+        model.addAttribute("trainer",trainerRepository.findOne(new Long(trainerid)));
+        model.addAttribute("experiancelist",experianceRepository.findAll());
+        System.out.println("Count for Trainer Repo"+trainerRepository.count());
         return "traineraddexperiance";
     }
-    @PostMapping("/addTrainertoExperiance")
-    public String addTrainertoExperiance(HttpServletRequest request, Model model)
+    @PostMapping("/addtrainertoexperiance/{id}")
+    public String addtrainertoexperiance(HttpServletRequest request, Model model)
     {
-        String trainerId = request.getParameter("trainerId");
+        String trainerid = request.getParameter("trainerid");
         String experianceid = request.getParameter("experianceid");
-        Trainer trainer=trainerRepository.findOne(new Long(trainerId));
+        Trainer trainer = trainerRepository.findOne(new Long(trainerid));
+        System.out.println("Trainer ID:"+ trainerid);
+        System.out.println("Experience ID:"+ experianceid);
         trainer.addExperiance(experianceRepository.findOne(new Long(experianceid)));
         trainerRepository.save(trainer);
-        model.addAttribute("experiancelist", experianceRepository.findAll());
-        model.addAttribute("trainerlist", trainerRepository.findAll());
+        model.addAttribute("experiancelist",experianceRepository.findAll());
+        model.addAttribute("fittrain",trainerRepository.findAll());
         return "redirect:/";
     }
 
@@ -216,4 +228,28 @@ public class MainController {
     {
         return "appointmentlist";
     }
+
+
+    //Adding/ Loaction
+    @GetMapping("/addlocation")
+    private String addLocation(Model model)
+    {
+        model.addAttribute("location", new Location());
+        return "locationform";
+    }
+
+    @PostMapping("/processlocationlist")
+    private String processLocation(@Valid Location location, Model model)
+    {
+        model.addAttribute("locationlist",locationRepository.findAll());
+        return "locationlist";
+    }
+
+    @RequestMapping("/showlocation")
+    private String showLocationList(Model model)
+    {
+        return "locationlist";
+    }
+
+
 }

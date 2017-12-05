@@ -1,9 +1,10 @@
 package me.jrmensah.workit.Entity;
 
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,22 +15,22 @@ public class Appointment {
     private long id;
 
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String appointNum;
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String preferDate;
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String preferTime;
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String preferLocation;
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String preferTrainer;
     @NotNull
-    @Size(min = 3)
+    @NotEmpty
     private String appointStatus;
 
     @ManyToMany(mappedBy = "appointments")

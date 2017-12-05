@@ -11,9 +11,13 @@
     <link rel="stylesheet" th:href="@{/css/appointstylecss.css}" type="text/css"/>
 
 
+    <div th:replace="base::header"></div>
 
 </head>
 <body>
+
+<div th:replace="base :: navigation"></div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -26,8 +30,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label" for="name">Name</label>
-                                <input id="name" name="name" type="text" placeholder=" Client Name" class="form-control input-md">
+                                <label>Name</label>
+                                <input id="name" name="name" type="text" placeholder=" Client Name">
+                            <select  class="selectpicker">
+                                <option th:each="client : ${allclients}"
+                                th:text="${client.firstName}">Client Name</option>
+                            </select>
                             </div>
                         </div>
                         <!-- Text input: Client Email-->
@@ -48,10 +56,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="time">Preferred Time</label>
-                                    <select id="time" name="time" class="form-control">
+                                    <select  class="selectpicker" id="time" name="time" class="form-control">
                                         <option value="8:00 to 9:00">8:00am to 9:00am</option>
                                         <option value="9:00 to 10:00">9:00am to 10:00am</option>
                                         <option value="10:00 to 1:00">10:00am to 11:00am</option>
+                                        <option value="8:00 to 9:00">11:00am to 12:00pm</option>
+                                        <option value="9:00 to 10:00">1:00pm to 2:00pm</option>
+                                        <option value="10:00 to 1:00">2:00pm to 3:00pm</option>
+                                        <option value="8:00 to 9:00">4:00pm to 5:00pm</option>
+                                        <option value="9:00 to 10:00">6:00pm to 7:00pm</option>
+                                        <option value="10:00 to 1:00">8:00pm to 9:00pm</option>
                                     </select>
                                 </div>
                             </div>
@@ -59,7 +73,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="time">Preferred Location by County</label>
-                                    <select id="location" name="location" class="form-control">
+                                    <select class="selectpicker"  id="location" name="location" class="form-control">
                                         <option value="Montgomery">Montgomery</option>
                                         <option value="Fredrick">Fredrick</option>
                                         <option value="Prince George">Prince George's</option>
@@ -70,7 +84,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label" for="appointmentfor">Appointment For</label>
-                                    <select id="appointmentfor" name="appointmentfor" class="form-control">
+                                    <select class="selectpicker"  id="appointmentfor" name="appointmentfor" class="form-control">
                                         <option value="Service#1">Trainer#1</option>
                                         <option value="Service#2">Trainer#2</option>
                                         <option value="Service#3">Trainer#3</option>

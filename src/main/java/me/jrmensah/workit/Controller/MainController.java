@@ -187,7 +187,7 @@ public class MainController {
         model.addAttribute("trainer",trainerRepository.findOne(new Long(trainerid)));
         model.addAttribute("experiancelist",experianceRepository.findAll());
         System.out.println("Count for Trainer Repo"+trainerRepository.count());
-        return "traineraddedfperiance";
+        return "traineraddexperiance";
     }
     @PostMapping("/addtrainertoexperiance/{id}")
     public String addtrainertoexperiance(HttpServletRequest request, Model model)

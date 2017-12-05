@@ -1,25 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <title>WorkFit</title>
-    <div th:replace="base::header"></div>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{/css/workfitstyle.css}" type="text/css">
 </head>
+
 <body>
-
-<!--nav bar and css components-->
-<div th:replace="base :: navigation"></div>
-
-
-<div class="container">
-    <h2> What do you want to do</h2>
-    <p>    <a href="/addclient">Add a Client </a> or <a href="/showclientlist">Show Client Listings</a></p>
-    <p>    <a href="/addtrainer">Add a Personal Trainer </a> or <a href="/showtrainerlist">Show Trainer Listings</a></p>
-    <p>    <a href="/login">Login</a> or <a href="/register">Register</a></p>
+<div class="main">
+    <div class="container">
+        <a href="https://www.flickr.com/photos/130661625@N04/16271271607/in/photolist-qMQwaD-a8aQ1M-a8dL97-sgb2J7-rBfxbk-rAEsR4-iRGzFT-rgNB1M-aBhRVR-6ebQjs-m6yAf-hNJcgn-mSzaFH-meFtEX-hpu5Jy-bZ3jX1-ckChXJ-p3UVDA-dgPgxN-H5ietG-etT6qD-qTYQmo-sg3ckT-dpQ499-sebgPY-scqveB-dnsqJT-rtYSrA-nEBGKw-DxEt67-7xVb6E-5Y7jXT-eXz9jf-Ghyw5u-6t7NJG-goKb5Y-9mnFkG-e3JsPN-strjq-dD8JZM-AbDCP5-T1c8T5-SR7EGJ-8jZqNR-hyK5Nf-dAzRe8-qPENVg-dUWRSR-weoEx1-5K4GUM">
+            <h1>WorkFit</h1>
+        </a>
+        <p>Take it to the next level.</p>
+        <a class="btn" href="/login">Start Now</a>
+    </div>
 </div>
 
+<div class="supporting">
+    <div class="container">
+        <div class="col">
+            <a href="/addclient">
+                <h2>Sign up as a New Client</h2>
+            </a>
+            <p>Join our club in one of our locations to
+                get 24 hours access on-site</p>
+        </div>
+        <div class="col">
+            <a href="/addtrainer">
+                <h2>Sign up as a Personal Trainer</h2>
+            </a>
+            <p>Our personal trainers will work to get you
+                in the best shape yet.</p>
+        </div>
+        <div class="col">
+            <a href="/search">
+                <h2>Browse Personal Trainers</h2>
+            </a>
+            <p>Look for trainers in our locations who
+                will help you become your best self.</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
 
-<th:block th:replace="base::footer"></th:block>
+<div class="feature">
+    <div class="container">
+        <h2>Never. Stop. Working.</h2>
+    </div>
+</div>
+
+<div class="supporting">
+    <div class="container">
+        <h2>Enroll</h2>
+        <p>Join our fitness club today.</p>
+        <a class="btn" href="#">Learn More</a>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <h2>Stop scrolling. Start moving.</h2>
+        <a class="btn" href="/login">Start Now</a>
+    </div>
 </div>
 </body>
 </html>

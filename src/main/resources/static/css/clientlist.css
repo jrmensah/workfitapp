@@ -4,7 +4,7 @@ body {
 
 h1{
 .text-center
-    margin: 0 auto;
+margin: 0 auto;
     width: 500px;
     float: center;
     font-family: "Open Sans", sans-serif;
@@ -14,16 +14,16 @@ h1{
 
 th {
     font-family: "Open Sans", sans-serif;
-    color: #f15c2e;
+    color: #00c7c8;
     font-size: 16px;
 }
 
 td {
     font-family: "Open Sans", sans-serif;
-    color: #f15c2e;
+    color: #00c7c8;
     font-size: 16px;
 }
 
 a {
-    text-decoration: none;
+    text-decoration:none;
 }

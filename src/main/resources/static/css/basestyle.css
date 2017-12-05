@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+    .fa-caret-right:before {
+        display: none;
+    }
+    .fa-caret-down:before {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .dropdown-toggle {
+        padding: 15px;
+        font-size: 22px;
+        position: absolute;
+        right: 0;
+        z-index: 300;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+
+}

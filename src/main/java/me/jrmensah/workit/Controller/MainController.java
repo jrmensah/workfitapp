@@ -395,7 +395,7 @@ public class MainController {
     }
 
 
-    //Adding/ Loaction
+    //Adding/ Location
     @GetMapping("/addlocation")
     private String addLocation(Model model)
     {

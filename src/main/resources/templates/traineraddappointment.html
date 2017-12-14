@@ -2,12 +2,12 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WorkFit Trainer Appointment</title>
     <div th:replace="base::header"></div>
 </head>
 <body>
 <form th:action="@{/addtrainertoappointment/{id}}"  th:object="${appointmentlist}"  method="post">
-
+    <div th:replace="basetrainer::trainernavigation"></div>
     <input type="text" th:value="${trainer.id}" name="trainerid"/>
     <label th:inline="text"> Adding Trainers to Appointments</label>
 
@@ -15,7 +15,7 @@
         <option th:each="aappointment:${appointmentlist}" th:value="${aappointment.id}" th:text="${aappointment.appointStatus}">Trainer id</option>
     </select>
 
-    <input type="Submit" value="Add Trainers Appointments"/>
+    <input type="Submit" value="Add Trainer Appointment"/>
 </form>
 
 </body>

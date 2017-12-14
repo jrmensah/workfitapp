@@ -2,14 +2,14 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Add a Client</title>
+    <title>WorkFit Trainer Experience</title>
     <div th:replace="base::header"></div>
 </head>
 <body>
 
 
 <form th:action="@{/addtrainertoexperiance/{id}}"  th:object="${experiancelist}"  method="post">
-
+    <div th:replace="basetrainer::trainernavigation"></div>
     <input type="text" th:value="${trainer.id}" name="trainerid"/>
     <label th:inline="text"> Adding Trainers to Experience</label>
 
@@ -17,7 +17,7 @@
         <option th:each="aexperiance:${experiancelist}" th:value="${aexperiance.id}" th:text="${aexperiance.experianceLevel}">Trainer id</option>
     </select>
 
-    <input type="Submit" value="Add Trainers Experiance"/>
+    <input type="Submit" value="Add Trainer Experience"/>
 </form>
 
 </body>

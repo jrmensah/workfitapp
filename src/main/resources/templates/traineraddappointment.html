@@ -9,7 +9,7 @@
 <form th:action="@{/addtrainertoappointment/{id}}"  th:object="${appointmentlist}"  method="post">
     <div th:replace="basetrainer::trainernavigation"></div>
     <input type="text" th:value="${trainer.id}" name="trainerid"/>
-    <label th:inline="text"> Adding Trainers to Appointments</label>
+    <label th:inline="text"> Adding Trainers to Appointment</label>
 
     <select class="selectpicker" name="appointmentid">
         <option th:each="aappointment:${appointmentlist}" th:value="${aappointment.id}" th:text="${aappointment.appointStatus}">Trainer id</option>
